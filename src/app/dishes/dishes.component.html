@@ -1,0 +1,21 @@
+<h2>Piatti</h2>
+<table class="dishes">
+  <tr>
+    <th>ID Pietanza</th>
+    <th>Nome Pietanza</th>
+    <th>Tipo Pietanza</th>
+    <th>Operazioni</th>
+  </tr>
+  <tr *ngFor="let dish of dishes">
+    <td class="id">{{dish.id}}</td>
+    <td class="name">{{dish.name}}</td>
+    <td class="type">{{dish.type}}</td>
+    <td class="operazioni">
+      <button (click)='viewDish(dish)'>Visualizza</button>
+      <button (click)='editDish()'>Modifica</button>
+      <button (click)='deleteDish(dish)'>Cancella</button>
+    </td>
+  </tr>
+</table>
+<button (click)='addDish()'>Aggiungi</button>
+<app-dish-detail [dish]="selectedDish" (aggiungiPiatto)="add($event)"></app-dish-detail>

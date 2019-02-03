@@ -1,0 +1,11 @@
+
+<div *ngIf="dish">
+    <h2>Gestione piatti</h2>
+  <label>Nome:
+    <input [(ngModel)]="dish.name" placeholder="name" />
+  </label>
+  <label>Tipo
+    <input [(ngModel)]="dish.type" placeholder="type" />
+  </label>
+  <button (click)="aggiungi(dish)">Aggiungi</button>
+</div>
