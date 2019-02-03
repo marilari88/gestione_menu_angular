@@ -5,7 +5,9 @@
     <input [(ngModel)]="dish.name" placeholder="name" />
   </label>
   <label>Tipo
-    <input [(ngModel)]="dish.type" placeholder="type" />
+    <select [(ngModel)]="dish.type" placeholder="type">
+      <option *ngFor='let tipo of tipoPietanze' [ngValue]="tipo">{{tipo}}</option>
+    </select>
   </label>
   <button (click)="aggiungi(dish)">Aggiungi</button>
 </div>

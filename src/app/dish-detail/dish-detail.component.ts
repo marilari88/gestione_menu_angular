@@ -23,6 +23,14 @@ export class DishDetailComponent implements OnInit {
     this.aggiungiPiatto.emit(dish);
   }
 
+  tipoPietanze=[
+    'Antipasto',
+    'Primo',
+    'Secondo',
+    'Contorno',
+    'Dolce'
+  ]
+
 
 }
 
