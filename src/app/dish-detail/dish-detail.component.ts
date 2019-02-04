@@ -14,16 +14,14 @@ export class DishDetailComponent implements OnInit {
   @Output() aggiungiPiatto: EventEmitter<Dish> = new EventEmitter();
 
 
-
   ngOnInit() {
   }
 
   aggiungi(dish: Dish): void {
-   
-    this.aggiungiPiatto.emit(dish);
+      this.aggiungiPiatto.emit(dish);
   }
 
-  tipoPietanze=[
+  tipoPietanze = [
     'Antipasto',
     'Primo',
     'Secondo',

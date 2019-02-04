@@ -37,7 +37,15 @@ export class DishService {
     )
   }
 
-
+editDish(dish:Dish):Observable<Dish>{
+  const id = dish.id;
+  //dish['_method']='PUT';
+  const url = `${this.dishesUrl}/${id}/`;
+  return this.http.put<Dish>(url, dish, httpOptions).pipe(
+    tap((dish: Dish) => console.log(`Modificato piatto {{dish.name}}`)),
+    catchError(this.handleError<Dish>('Modificato Piatto'))
+  )
+}
 
   deleteDish(dish: Dish): Observable<Dish> {
     const id = dish.id;

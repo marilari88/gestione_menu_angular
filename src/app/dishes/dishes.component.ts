@@ -27,7 +27,12 @@ export class DishesComponent implements OnInit {
       .subscribe(dishes => this.dishes = dishes);
   }
 
+  editDish(dish: Dish): void {
+    this.setSelectedDish(dish);
+  }
+
   viewDish(dish: Dish): void {
+    console.log("Apertura piatto in modalità modifica");
     this.setSelectedDish(dish);
   }
 
@@ -43,11 +48,20 @@ export class DishesComponent implements OnInit {
     this.setSelectedDish(dish);
   }
 
-  add(dish:Dish): void {
-    this.dishService.addDish(dish)
-      .subscribe(
-        dish => this.dishes.push(dish)
-    )
+  add(dish: Dish): void {
+    if (dish.id) {
+
+      this.dishService.editDish(dish)
+        .subscribe(
+          ()=>console.log('Modificato piatto')
+        )
+    } else {
+      this.dishService.addDish(dish)
+        .subscribe(
+          dish => this.dishes.push(dish)
+        )
+    }
+
 
   }
 
